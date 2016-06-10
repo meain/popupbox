@@ -1,5 +1,11 @@
 // Actual function that opens and closes the popup window
-function displayPopup(base, popupcontent){
+function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below'){
+    /*
+    Options
+       popupXLocation : left, right, middle
+       popupYLocation : above, below
+    */
+
     // Get the location of the parent so as to positon the popup
     var element = $(base);
     var child = $(popupcontent);
@@ -11,8 +17,24 @@ function displayPopup(base, popupcontent){
     var ewidth = element.outerWidth();
     var cwidth = child.outerWidth();
     var cheight = child.outerHeight();
-    var posy = etop + eheight;
-    var posx = eleft + ewidth/2 - cwidth/2;
+    console.log(popupXLocation + ' - ' +  popupYLocation);
+    //Fixing Y location
+    if(popupYLocation == 'below'){
+        var posy = etop + eheight;
+    }
+    if(popupYLocation == 'above'){
+        var posy = etop - cheight;
+    }
+    //Fixing X location
+    if(popupXLocation == 'middle'){
+        var posx = eleft + ewidth/2 - cwidth/2;
+    }
+    if(popupXLocation == 'left'){
+        var posx = eleft + ewidth/10 - cwidth/2;
+    }
+    if(popupXLocation == 'right'){
+        var posx = eleft + ewidth*9/10 - cwidth/2;
+    }
     // Fix left position on overflow
     if(posx < 5){
         posx = 5;
