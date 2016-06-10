@@ -1,6 +1,7 @@
 # Popupbox
 
 A sensible popupbox, just see the example here and use it. No weird syntax. All the shadow and anything inside is for you to do on our will. This module will place the `thing` you made along with an arrow where it should be.
+One assumption that is made is that your popup box will be bigger than the target.
 
 `Plug in popupbox.js and popupbox.css in your project`
 
