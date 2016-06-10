@@ -1,6 +1,6 @@
 # POPUPBOX
 
-A sensible popupbox, just see the example here and use it. No weird syntax.
+A sensible popupbox, just see the example here and use it. No weird syntax. All the shadow and anything inside is for you to do on our will. This module will place the `thing` you made along with an arrow where it should be.
 
 `Plugn popupbox.js and popupbox.css in your project`
 
@@ -46,15 +46,14 @@ $(1).click(function(e){
 2 : The base from which the popup should come up
 3 : Actual content
 ```
-**More in displayPopup**
-```js
-function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7')
-```
-
 Example : 
 ```js
 $('#button').click(function(e){
     e.stopPropagation();
     displayPopup('#button', '#popupboxcontent');
 });
+```
+**More in displayPopup**
+```js
+function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7')
 ```
