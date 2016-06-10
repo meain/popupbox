@@ -17,6 +17,7 @@ The structure is a nested div (will be charged soon to single div) of the form :
     </div>
 </div>
 ```
+Don't change the class `popupbox`, but the inner one can be changed as you wish.
 Where the top one is a placeholder and the inner `popupboxcontent` is the actual content.
 You can put this wherever you want in the code. All the linking is in the js.
 
