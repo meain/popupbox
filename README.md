@@ -37,20 +37,19 @@ Just remember to change the name of the classes in the js accordingly.
 ```js
 $(1).click(function(e){
     e.stopPropagation();
-    displayPopup('2', '3', '4');
+    displayPopup('2', '3');
 });
 ```
 ```md
 1 : Trigger point
 2 : The base from which the popup should come up
-3 : The covering div of popupboxcontent
-4 : Actual content
+3 : Actual content
 ```
 
 Example : 
 ```js
 $('#button').click(function(e){
     e.stopPropagation();
-    displayPopup('#button', '#popupbox', '#popupboxcontent');
+    displayPopup('#button', '#popupboxcontent');
 });
 ```
