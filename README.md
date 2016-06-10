@@ -57,3 +57,6 @@ $('#button').click(function(e){
 ```js
 function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7')
 ```
+
+#Screenshot (basic)
+![image](http://i.imgur.com/cAdGrke.png)
