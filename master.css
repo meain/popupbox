@@ -7,7 +7,7 @@ div#button{
     background-color: #ded;
     /* width: 120px; */
     display: inline-block;
-    margin: 200px;
+    margin: 400px;
     padding: 10px;
     cursor: pointer;
     transition: background-color 2s;

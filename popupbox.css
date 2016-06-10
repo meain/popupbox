@@ -1,4 +1,4 @@
-div#popupbox{
+div.popupbox{
     display: none;
     position: absolute;
     height: 100%;

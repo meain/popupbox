@@ -1,5 +1,23 @@
+function getTriangleDiv(xpos, direction = 'up', color = 'white', size = '7'){
+    var triangleDiv = '<div id="triangleDiv" style="margin-left:' + xpos + 'px;width:0px;height:0px;';
+    if(direction == 'up'){
+        triangleDiv = triangleDiv + 'border-left: ' + size + 'px solid transparent;border-right: ' + size + 'px solid transparent;border-top: ' + size + 'px solid transparent;border-bottom: ' + size + 'px solid ' + color + ';';
+    }
+    if(direction == 'down'){
+        triangleDiv = triangleDiv + 'border-left: ' + size + 'px solid transparent;border-right: ' + size + 'px solid transparent;border-bottom: ' + size + 'px solid transparent;border-top: ' + size + 'px solid ' + color + ';';
+    }
+    if(direction == 'left'){
+        triangleDiv = triangleDiv + 'border-left: ' + size + 'px solid transparent;border-bottom: ' + size + 'px solid transparent;border-top: ' + size + 'px solid transparent;border-right: ' + size + 'px solid ' + color + ';';
+    }
+    if(direction == 'right'){
+        triangleDiv = triangleDiv + 'border-bottom: ' + size + 'px solid transparent;border-right: ' + size + 'px solid transparent;border-top: ' + size + 'px solid transparent;border-left: ' + size + 'px solid ' + color + ';';
+    }
+    triangleDiv = triangleDiv + '"></div>'
+    return triangleDiv;
+}
+
 // Actual function that opens and closes the popup window
-function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below'){
+function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7'){
     /*
     Options
        popupXLocation : left, right, middle
@@ -15,9 +33,11 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
     var eleft = offsets.left;
     var eheight = element.outerHeight();
     var ewidth = element.outerWidth();
+    var coffsets = child.offset();
+    var ctop = coffsets.top;
+    var cleft = coffsets.left;
     var cwidth = child.outerWidth();
     var cheight = child.outerHeight();
-    console.log(popupXLocation + ' - ' +  popupYLocation);
     //Fixing Y location
     if(popupYLocation == 'below'){
         var posy = etop + eheight;
@@ -28,18 +48,31 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
     //Fixing X location
     if(popupXLocation == 'middle'){
         var posx = eleft + ewidth/2 - cwidth/2;
+        arrowx = cwidth/2;
     }
     if(popupXLocation == 'left'){
-        var posx = eleft + ewidth/10 - cwidth/2;
+        var posx = eleft + ewidth*9/10 - cwidth;
+        arrowx = cwidth - ewidth/4;
     }
     if(popupXLocation == 'right'){
-        var posx = eleft + ewidth*9/10 - cwidth/2;
+        var posx = eleft + ewidth/10;
+        arrowx = ewidth/4;
     }
     // Fix left position on overflow
     if(posx < 5){
         posx = 5;
     }
-    console.log('posx : ' + posx + ' posy : ' + eheight);
+    // Adjust position due to arrow
+    posy = posy - arrowSize;
+    //Insert a triangle befre the content
+    if($('#triangleDiv').length == 0){
+        if(popupYLocation == 'below'){
+            $(getTriangleDiv(arrowx, 'up', 'black')).insertBefore(popupcontent);
+        }
+        if(popupYLocation == 'above'){
+            $(popupboxcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
+        }
+    }
     popupbox.css('height', cheight + 'px');
     popupbox.css('width', cwidth + 'px');
     popupbox.css('margin-top', posy + 'px');
