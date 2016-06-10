@@ -16,6 +16,8 @@ $('#button').click(function(e){
         posx = 5;
     }
     console.log('posx : ' + posx + ' posy : ' + eheight);
+    $('#popupbox').css('height', cheight + 'px');
+    $('#popupbox').css('width', cwidth + 'px');
     $('#popupbox').css('margin-top', posy + 'px');
     $('#popupbox').css('margin-left', posx + 'px');
     $('#popupbox').css('display', 'inline');
