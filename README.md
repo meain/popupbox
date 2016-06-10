@@ -2,7 +2,7 @@
 
 A sensible popupbox, just see the example here and use it. No weird syntax.
 
-`Plugn this in js and change the names`
+`Plugn popupbox.js and popupbox.css in your project`
 
 ## How to use : 
 
