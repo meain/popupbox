@@ -4,7 +4,38 @@ A sensible popupbox, just see the example here and use it. No weird syntax. All 
 
 `Plug in popupbox.js and popupbox.css in your project`
 
-## How to use : 
+## Quick use guide
+1. Add `popupbox.js` into your project
+2. Add this to your css
+    ```css
+    div.popupbox{
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+    ```
+3. Add this somewhere within the body in your html
+    ```html
+    <div class='popupbox'>
+        <div id="popupboxcontent">
+            Thing that will come up in the popup
+        </div>
+    </div>
+    ```
+4. Fill your popup content in div with id `#popupboxcontent`, duh!
+5. Finally call the function in your js like this
+    ```js
+    $('#button').click(function(e){
+        e.stopPropagation();
+        displayPopup('#button', '#popupboxcontent');
+    });
+    ```
+
+## Explained (just in case): 
 
 It displays a popupbox by making the overlay with the width and height configured as the inner element.
 
