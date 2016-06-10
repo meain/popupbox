@@ -34,8 +34,23 @@ div#popupbox{
 ```
 Now inside the `popupboxcontent` as the name suggest put all your content and you are good to go.
 Just remember to change the name of the classes in the js accordingly.
-
-`In the js, replace the '#button' to whatever you want ot have a popup from`
 ```js
-$('#button').click(function(e){ ....
+$(1).click(function(e){
+    e.stopPropagation();
+    displayPopup('2', '3', '4');
+});
+```
+```md
+1 : Trigger point
+2 : The base from which the popup should come up
+3 : The covering div of popupboxcontent
+4 : Actual content
+```
+
+Example : 
+```js
+$('#button').click(function(e){
+    e.stopPropagation();
+    displayPopup('#button', '#popupbox', '#popupboxcontent');
+});
 ```

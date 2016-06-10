@@ -1,8 +1,8 @@
-$('#button').click(function(e){
-    e.stopPropagation();
+// Actual function that opens and closes the popup window
+function displayPopup(base, popupbox, popupcontent){
     // Get the location of the parent so as to positon the popup
-    var element = $(this);
-    var child = $('#popupboxcontent');
+    var element = $(base);
+    var child = $(popupcontent);
     var offsets = element.offset();
     var etop = offsets.top;
     var eleft = offsets.left;
@@ -12,20 +12,27 @@ $('#button').click(function(e){
     var cheight = child.outerHeight();
     var posy = etop + eheight;
     var posx = eleft + ewidth/2 - cwidth/2;
+    // Fix left position on overflow
     if(posx < 5){
         posx = 5;
     }
     console.log('posx : ' + posx + ' posy : ' + eheight);
-    $('#popupbox').css('height', cheight + 'px');
-    $('#popupbox').css('width', cwidth + 'px');
-    $('#popupbox').css('margin-top', posy + 'px');
-    $('#popupbox').css('margin-left', posx + 'px');
-    $('#popupbox').css('display', 'inline');
+    $(popupbox).css('height', cheight + 'px');
+    $(popupbox).css('width', cwidth + 'px');
+    $(popupbox).css('margin-top', posy + 'px');
+    $(popupbox).css('margin-left', posx + 'px');
+    $(popupbox).css('display', 'block');
     $('html').click(function(){
-        $('#popupbox').hide();
+        $(popupbox).hide();
     });
-    $('#popupboxcontent').click(function(e){
+    $(popupcontent).click(function(e){
         e.stopPropagation();
         $(this).show();
     });
+}
+
+
+$('#button').click(function(e){
+    e.stopPropagation();
+    displayPopup('#button', '#popupbox', '#popupboxcontent');
 });
