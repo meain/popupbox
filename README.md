@@ -7,6 +7,7 @@ A sensible popupbox, just see the example here and use it. No weird syntax. All 
 ## Quick use guide
 1. Add `popupbox.js` into your project
 2. Add this to your css
+
     ```css
     div.popupbox{
         display: none;
@@ -19,6 +20,7 @@ A sensible popupbox, just see the example here and use it. No weird syntax. All 
     }
     ```
 3. Add this somewhere within the body in your html
+
     ```html
     <div class='popupbox'>
         <div id="popupboxcontent">
@@ -28,6 +30,7 @@ A sensible popupbox, just see the example here and use it. No weird syntax. All 
     ```
 4. Fill your popup content in div with id `#popupboxcontent`, duh!
 5. Finally call the function in your js like this
+
     ```js
     $('#button').click(function(e){
         e.stopPropagation();
