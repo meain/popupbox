@@ -1,0 +1,18 @@
+body{
+    font-family: monaco;
+    padding: 0;
+    margin: 0;
+}
+div#button{
+    background-color: #ded;
+    width: 120px;
+    margin: 200px;
+    padding: 10px;
+    cursor: pointer;
+}
+div#popupbox{
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
