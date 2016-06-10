@@ -46,6 +46,10 @@ $(1).click(function(e){
 2 : The base from which the popup should come up
 3 : Actual content
 ```
+**More in displayPopup**
+```js
+function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7')
+```
 
 Example : 
 ```js

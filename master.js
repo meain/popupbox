@@ -1,4 +1,4 @@
 $('#button').click(function(e){
     e.stopPropagation();
-    displayPopup('#button', '#popupboxcontent', 'right', 'below', 'black');
+    displayPopup('#button', '#popupboxcontent', 'left', 'above', 'black');
 });
