@@ -1,7 +1,7 @@
 $('#button').click(function(e){
     e.stopPropagation();
     // Get the location of the parent so as to positon the popup
-    var element = $('#button');
+    var element = $(this);
     var child = $('#popupboxcontent');
     var offsets = element.offset();
     var etop = offsets.top;
@@ -21,11 +21,11 @@ $('#button').click(function(e){
     $('#popupbox').css('margin-top', posy + 'px');
     $('#popupbox').css('margin-left', posx + 'px');
     $('#popupbox').css('display', 'inline');
-});
-$('html').click(function(){
-    $('#popupbox').hide();
-});
-$('#popupboxcontent').click(function(e){
-    e.stopPropagation();
-    $(this).show();
+    $('html').click(function(){
+        $('#popupbox').hide();
+    });
+    $('#popupboxcontent').click(function(e){
+        e.stopPropagation();
+        $(this).show();
+    });
 });
