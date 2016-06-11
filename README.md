@@ -30,7 +30,7 @@ One assumption that is made is that your popup box will be bigger than the targe
     </div>
     ```
 4. Fill your popup content in div with id `#popupboxcontent`, duh!
-5. Finally call the function in your js like this
+5. Finally call the function in your js like this. Use `e.stopPropagation()`
 
     ```js
     $('#button').click(function(e){
