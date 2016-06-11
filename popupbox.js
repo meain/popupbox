@@ -67,7 +67,7 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
                 $(getTriangleDiv(arrowx, 'up', 'black')).insertBefore(popupcontent);
             }
             if(popupYLocation == 'above'){
-                $(popupboxcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
+                $(popupcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
             }
         }
     }
@@ -87,4 +87,42 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
         e.stopPropagation();
         $(this).show();
     });
+}
+
+// Full screen popupbox funciton
+function displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256'){
+
+    // Get the location of the parent so as to positon the popup
+    var popupcontent = $(popupcontent);
+    var popupbox = popupcontent.parent().closest('div');
+    var cwidth = popupcontent.outerWidth();
+    var cheight = popupcontent.outerHeight();
+
+    //Center the popupcontent
+    popupcontent.css('position', 'absolute');
+    popupcontent.css('max-height', '60vh');
+    popupcontent.css('width', 'auto');
+    popupcontent.css('top', '50%');
+    popupcontent.css('left', '50%');
+    popupcontent.css('transform', 'translate(-50%, -50%)');
+    // Color the background
+    console.log(backgoundColor);
+    popupbox.css('background-color', 'rgba(' + backgoundColor + ', ' + backgoundOpacity + ')');
+    // popupbox.css('filter', 'blur(7px)');
+    //Finaly show the content
+    popupbox.css('display', 'block');
+
+    $('html').click(function(){
+        popupbox.hide();
+    });
+    $(popupcontent).click(function(e){
+        e.stopPropagation();
+        $(this).show();
+    });
+}
+
+function removePopup(popupcontent){
+    var popupcontent = $(popupcontent);
+    var popupbox = popupcontent.parent().closest('div');
+    popupbox.hide();
 }
