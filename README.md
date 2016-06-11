@@ -5,23 +5,10 @@ One assumption that is made is that your popup box will be bigger than the targe
 
 `Plug in popupbox.js and popupbox.css in your project`
 
-## Quick use
-1. Add `popupbox.js` into your project
-2. Add this to your css
+# Usage
+* Include the files `popupbox.js` and `popupbox.css` in your project.
 
-    ```css
-    div.popupbox{
-        display: none;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 100;
-    }
-    ```
-3. Add this somewhere within the body in your html
-
+* Now you have to have this div structure somewhere in your html and put your **content to be displayed inside the inner div**.
     ```html
     <div class='popupbox'>
         <div id="popupboxcontent">
@@ -29,59 +16,21 @@ One assumption that is made is that your popup box will be bigger than the targe
         </div>
     </div>
     ```
-4. Fill your popup content in div with id `#popupboxcontent`, duh!
-5. Finally call the function in your js like this. Use `e.stopPropagation()`
+    Don't change the outer div class, but change the inner div's id to whatever you want it to be. All the linking is done in `js`.
 
-    ```js
-    $('#button').click(function(e){
-        e.stopPropagation();
-        displayPopup('#button', '#popupboxcontent');
-    });
-    ```
-
-## Explained 
-
-It displays a popupbox by making the overlay with the width and height configured as the inner element.
-
-The structure is a nested div of the form :
-
-```html
-<div class='popupbox'>
-    <div id="popupboxcontent">
-        Thing that will come up in the popup
-    </div>
-</div>
-```
-Don't change the outer class `popupbox`, but the inner one can be changed as you wish.
-In here the top one is a placeholder and the inner `popupboxcontent` is the actual content.
-You can put this wherever you want in the code. All the linking is done in your js.
-
-Now for the css, use this for `popupbox` (this is default and you can reuse it, just remember to make it the highest z-index on the page or something else might block the view):
-```css
-div.popupbox{
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-```
-
-Now inside the `popupboxcontent` as the name suggest put all your content and you are good to go.
-Just remember to change the name of the classes in the js accordingly.
+## displayPopup
+This is used to show a simple popup window with or without an arrow to accompany it.
+The function definition is like this:
 ```js
-$(1).click(function(e){
-    e.stopPropagation();
-    displayPopup('2', '3');
-});
+displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrow = true, arrowColor ='white', arrowSize = '7')
 ```
-```md
-1 : Trigger point
-2 : The base from which the popup should come up
-3 : Actual content
 ```
+Options
+   popupXLocation : left, right, middle
+   popupYLocation : above, below
+```
+Now you can call this as and when you need, by default it is assumed to be removed on clicking outside the popup.
+
 Example : 
 ```js
 $('#button').click(function(e){
@@ -89,10 +38,38 @@ $('#button').click(function(e){
     displayPopup('#button', '#popupboxcontent');
 });
 ```
-**More in displayPopup**
-```js
-displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrow = true, arrowColor ='white', arrowSize = '7')
-```
 
-### Screenshot (basic)
-![image](http://i.imgur.com/cAdGrke.png)
+You can also use this to implement a **popup on mouse hover**, like this : 
+```js
+$('#button').hover(function(e){
+    e.stopPropagation();
+    displayPopup('#button', '#popupboxcontent', 'left', 'above', true, 'black');
+},
+function(e){
+    e.stopPropagation();
+    removePopup('#popupboxcontent');
+});
+```
+The `removePopup()` function only takes one value, ie the id of the div of the `popupboxcontent`
+
+### Screen shot
+![popupBox](http://i.imgur.com/3CTc5pn.png)
+
+## displayFullScreenPopup
+This is used, as the name suggest to display a full screen popup - kinda like a model in bootstrap
+
+This is how the function definition looks like:
+```js
+displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256')
+```
+Like the native implementation of popupBox it will be removed on clicking anywhere outside the popup.
+
+You can call this like :
+```js
+$('#button').click(function(e){
+    e.stopPropagation();
+    displayFullScreenPopup('#popupboximagecontent');
+});
+```
+### Screen shot
+![FullScreenPopup](http://i.imgur.com/V9D7Nrp.png)
