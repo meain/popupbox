@@ -52,11 +52,11 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
     }
     if(popupXLocation == 'left'){
         var posx = eleft + ewidth*9/10 - cwidth;
-        arrowx = cwidth - ewidth/4;
+        arrowx = cwidth - ewidth/2;
     }
     if(popupXLocation == 'right'){
         var posx = eleft + ewidth/10;
-        arrowx = ewidth/4;
+        arrowx = ewidth/2;
     }
     // Fix left position on overflow
     if(posx < 5){
