@@ -106,9 +106,7 @@ function displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity
     popupcontent.css('left', '50%');
     popupcontent.css('transform', 'translate(-50%, -50%)');
     // Color the background
-    console.log(backgoundColor);
     popupbox.css('background-color', 'rgba(' + backgoundColor + ', ' + backgoundOpacity + ')');
-    // popupbox.css('filter', 'blur(7px)');
     //Finaly show the content
     popupbox.css('display', 'block');
 

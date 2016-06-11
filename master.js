@@ -8,7 +8,6 @@ $('#button').hover(function(e){
     displayPopup('#button', '#popupboxcontent', 'left', 'above', true, 'black');
 },
 function(e){
-    console.log('out');
     e.stopPropagation();
     removePopup('#popupboxcontent');
 });
