@@ -17,7 +17,7 @@ function getTriangleDiv(xpos, direction = 'up', color = 'white', size = '7'){
 }
 
 // Actual function that opens and closes the popup window
-function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7'){
+function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrow = true, arrowColor ='white', arrowSize = '7'){
     /*
     Options
        popupXLocation : left, right, middle
@@ -58,20 +58,22 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
         var posx = eleft + ewidth/10;
         arrowx = ewidth/2;
     }
+    if (arrow == true){
+        // Adjust position due to arrow
+        posy = posy - arrowSize;
+        //Insert a triangle befre the content
+        if($('#triangleDiv').length == 0){
+            if(popupYLocation == 'below'){
+                $(getTriangleDiv(arrowx, 'up', 'black')).insertBefore(popupcontent);
+            }
+            if(popupYLocation == 'above'){
+                $(popupboxcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
+            }
+        }
+    }
     // Fix left position on overflow
     if(posx < 5){
         posx = 5;
-    }
-    // Adjust position due to arrow
-    posy = posy - arrowSize;
-    //Insert a triangle befre the content
-    if($('#triangleDiv').length == 0){
-        if(popupYLocation == 'below'){
-            $(getTriangleDiv(arrowx, 'up', 'black')).insertBefore(popupcontent);
-        }
-        if(popupYLocation == 'above'){
-            $(popupboxcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
-        }
     }
     popupbox.css('height', cheight + 'px');
     popupbox.css('width', cwidth + 'px');
