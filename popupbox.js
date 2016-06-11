@@ -106,7 +106,9 @@ function displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity
     popupcontent.css('left', '50%');
     popupcontent.css('transform', 'translate(-50%, -50%)');
     // Color the background
-    popupbox.css('background-color', 'rgba(' + backgoundColor + ', ' + backgoundOpacity + ')');
+    if(backgound == true)}
+        popupbox.css('background-color', 'rgba(' + backgoundColor + ', ' + backgoundOpacity + ')');
+    }
     //Finaly show the content
     popupbox.css('display', 'block');
 
