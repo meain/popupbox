@@ -5,7 +5,7 @@ One assumption that is made is that your popup box will be bigger than the targe
 
 `Plug in popupbox.js and popupbox.css in your project`
 
-## Quick use guide
+## Quick use
 1. Add `popupbox.js` into your project
 2. Add this to your css
 
@@ -39,7 +39,7 @@ One assumption that is made is that your popup box will be bigger than the targe
     });
     ```
 
-## Explained (just in case): 
+## Explained 
 
 It displays a popupbox by making the overlay with the width and height configured as the inner element.
 
@@ -91,7 +91,7 @@ $('#button').click(function(e){
 ```
 **More in displayPopup**
 ```js
-function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrowColor ='white', arrowSize = '7')
+displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocation = 'below', arrow = true, arrowColor ='white', arrowSize = '7')
 ```
 
 ### Screenshot (basic)
