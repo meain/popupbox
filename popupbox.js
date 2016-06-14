@@ -64,10 +64,10 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
         //Insert a triangle befre the content
         if($('#triangleDiv').length == 0){
             if(popupYLocation == 'below'){
-                $(getTriangleDiv(arrowx, 'up', 'black')).insertBefore(popupcontent);
+                $(getTriangleDiv(arrowx, 'up', arrowColor, arrowSize)).insertBefore(popupcontent);
             }
             if(popupYLocation == 'above'){
-                $(popupcontent).after(getTriangleDiv(arrowx, 'down', arrowColor));
+                $(popupcontent).after(getTriangleDiv(arrowx, 'down', arrowColor, arrowSize));
             }
         }
     }

@@ -5,7 +5,7 @@ $('#button').click(function(e){
 
 $('#button').hover(function(e){
     e.stopPropagation();
-    displayPopup('#button', '#popupboxcontent', 'left', 'above', true, 'black');
+    displayPopup('#button', '#popupboxcontent', 'left', 'above', true, 'black', 10);
 },
 function(e){
     e.stopPropagation();
