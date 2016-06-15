@@ -71,4 +71,4 @@ $('#button').click(function(e){
 });
 ```
 ### Screen shot
-![FullScreenPopup](http://i.imgur.com/V9D7Nrp.png)
+![fullScreenPopup](http://i.imgur.com/V9D7Nrp.png)
