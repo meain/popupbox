@@ -59,9 +59,9 @@ This is used, as the name suggest to display a full screen popup - kinda like a 
 
 This is how the function definition looks like:
 ```js
-displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256')
+displayFullScreenPopup(popupcontent, overrideOutsideClick=false, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256')
 ```
-Like the native implementation of popupBox it will be removed on clicking anywhere outside the popup.
+Like the native implementation of popupBox it will be removed on clicking anywhere outside the popup, but you can override it by setting overrideOutsideClick to true.
 
 You can call this like :
 ```js

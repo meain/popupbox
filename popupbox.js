@@ -90,7 +90,7 @@ function displayPopup(base, popupcontent, popupXLocation = 'middle', popupYLocat
 }
 
 // Full screen popupbox funciton
-function displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256'){
+function displayFullScreenPopup(popupcontent, overrideOutsideClick=false, backgound = true, backgoundOpacity = 0.9, backgoundColor = '256, 256, 256'){
 
     // Get the location of the parent so as to positon the popup
     var popupcontent = $(popupcontent);
@@ -113,7 +113,9 @@ function displayFullScreenPopup(popupcontent, backgound = true, backgoundOpacity
     popupbox.css('display', 'block');
 
     $('html').click(function(){
-        popupbox.hide();
+        if (overrideOutsideClick != true){
+            popupbox.hide();
+        }
     });
     $(popupcontent).click(function(e){
         e.stopPropagation();
