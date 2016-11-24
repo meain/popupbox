@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Popupbox by meain</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Popupbox</h1>
+        <p>All things that pops up!</p>
+
+        <p class="view"><a href="https://github.com/meain/popupbox">View the Project on GitHub <small>meain/popupbox</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/meain/popupbox/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/meain/popupbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/meain/popupbox">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="popupbox" class="anchor" href="#popupbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Popupbox</h1>
+
+<p>A sensible popupbox, just see the example here and use it. No weird syntax. All the shadow and anything inside is for you to do on our will. This module will place the <code>thing</code> you made along with an arrow where it should be.
+One assumption that is made is that your popup box will be bigger than the target.</p>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+
+<ul>
+<li><p>Include the files <code>popupbox.js</code> and <code>popupbox.css</code> in your project.</p></li>
+<li>
+<p>Now you have to have this div structure somewhere in your html and put your <strong>content to be displayed inside the inner div</strong>.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>popupbox<span class="pl-pds">'</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>popupboxcontent<span class="pl-pds">"</span></span>&gt;
+        Thing that will come up in the popup
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>Don't change the outer div class, but change the inner div's id to whatever you want it to be. All the linking is done in <code>js</code>.</p>
+</li>
+</ul>
+
+<h2>
+<a id="displaypopup" class="anchor" href="#displaypopup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>displayPopup</h2>
+
+<p>This is used to show a simple popup window with or without an arrow to accompany it.
+The function definition is like this:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">displayPopup</span>(base, popupcontent, popupXLocation <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>middle<span class="pl-pds">'</span></span>, popupYLocation <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>below<span class="pl-pds">'</span></span>, arrow <span class="pl-k">=</span> <span class="pl-c1">true</span>, arrowColor <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>, arrowSize <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>7<span class="pl-pds">'</span></span>)</pre></div>
+
+<pre><code>Options
+   popupXLocation : left, right, middle
+   popupYLocation : above, below
+</code></pre>
+
+<p>Now you can call this as and when you need, by default it is assumed to be removed on clicking outside the popup.</p>
+
+<p>Example : </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#button<span class="pl-pds">'</span></span>).<span class="pl-c1">click</span>(<span class="pl-k">function</span>(<span class="pl-smi">e</span>){
+    <span class="pl-smi">e</span>.<span class="pl-c1">stopPropagation</span>();
+    <span class="pl-en">displayPopup</span>(<span class="pl-s"><span class="pl-pds">'</span>#button<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#popupboxcontent<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<p>You can also use this to implement a <strong>popup on mouse hover</strong>, like this : </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#button<span class="pl-pds">'</span></span>).<span class="pl-en">hover</span>(<span class="pl-k">function</span>(<span class="pl-smi">e</span>){
+    <span class="pl-smi">e</span>.<span class="pl-c1">stopPropagation</span>();
+    <span class="pl-en">displayPopup</span>(<span class="pl-s"><span class="pl-pds">'</span>#button<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#popupboxcontent<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>left<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>above<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>);
+},
+<span class="pl-k">function</span>(<span class="pl-smi">e</span>){
+    <span class="pl-smi">e</span>.<span class="pl-c1">stopPropagation</span>();
+    <span class="pl-en">removePopup</span>(<span class="pl-s"><span class="pl-pds">'</span>#popupboxcontent<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<p>The <code>removePopup()</code> function only takes one value, ie the id of the div of the <code>popupboxcontent</code></p>
+
+<h3>
+<a id="screen-shot" class="anchor" href="#screen-shot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screen shot</h3>
+
+<p><img src="http://i.imgur.com/3CTc5pn.png" alt="popupBox"></p>
+
+<h2>
+<a id="displayfullscreenpopup" class="anchor" href="#displayfullscreenpopup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>displayFullScreenPopup</h2>
+
+<p>This is used, as the name suggest to display a full screen popup - kinda like a model in bootstrap</p>
+
+<p>This is how the function definition looks like:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">displayFullScreenPopup</span>(popupcontent, overrideOutsideClick<span class="pl-k">=</span><span class="pl-c1">false</span>, backgound <span class="pl-k">=</span> <span class="pl-c1">true</span>, backgoundOpacity <span class="pl-k">=</span> <span class="pl-c1">0.9</span>, backgoundColor <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>256, 256, 256<span class="pl-pds">'</span></span>)</pre></div>
+
+<p>Like the native implementation of popupBox it will be removed on clicking anywhere outside the popup, but you can override it by setting overrideOutsideClick to true.</p>
+
+<p>You can call this like :</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#button<span class="pl-pds">'</span></span>).<span class="pl-c1">click</span>(<span class="pl-k">function</span>(<span class="pl-smi">e</span>){
+    <span class="pl-smi">e</span>.<span class="pl-c1">stopPropagation</span>();
+    <span class="pl-en">displayFullScreenPopup</span>(<span class="pl-s"><span class="pl-pds">'</span>#popupboximagecontent<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<h3>
+<a id="screen-shot-1" class="anchor" href="#screen-shot-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screen shot</h3>
+
+<p><img src="http://i.imgur.com/V9D7Nrp.png" alt="fullScreenPopup"></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/meain">meain</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
